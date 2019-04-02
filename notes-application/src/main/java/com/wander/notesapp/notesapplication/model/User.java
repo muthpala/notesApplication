@@ -18,7 +18,7 @@ import javax.persistence.Transient;
  * @version 1.0
  */
 @Entity
-@Table(name = "user", schema = "tododb")
+@Table(name = "user", schema = "notesappdb")
 public class User {
 
     @Id

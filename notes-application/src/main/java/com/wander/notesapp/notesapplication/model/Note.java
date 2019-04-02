@@ -18,7 +18,7 @@ import javax.persistence.Table;
  * @version 1.0
  */
 @Entity()
-@Table(name = "note", schema = "notesapp")
+@Table(name = "note", schema = "notesappdb")
 public class Note {
 
     @Id
@@ -40,10 +40,6 @@ public class Note {
     
     @Column(name = "last_update_date")
     private LocalDateTime lastUpdateDate;
-
-//    @Enumerated(EnumType.STRING)
-//    @Column(name = "category")
-//    private TaskCategories category;
 
     @Column(name = "status")
     private String status;

@@ -17,13 +17,9 @@ import com.wander.notesapp.notesapplication.model.Note;
  */
 public interface NoteRepository extends CrudRepository<Note, Integer> {
 
-    //@Query("from Task t where t.status=:status")
     List<Note> findByStatus(String status);
 
     List<Note> findByUserIdAndStatus(int userId,  String status);
-
- /*   @Query("from Task t where t.userId=:userId and  t.status=:status")
-    List<Task> findByUserIdStatus(@Param("userId") int userId, @Param("status") String status);*/
 
     @Query("from Note note where note.id BETWEEN  :start and :end")
     List<Note> findBetween(@Param("start") int start, @Param("end") int end);
