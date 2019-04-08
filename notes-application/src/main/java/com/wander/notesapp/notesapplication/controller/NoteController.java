@@ -45,8 +45,6 @@ public class NoteController {
                            final RedirectAttributes redirectAttributes) {
         logger.info("/note/save");
         try {
-        	reqNote.setCreateDate(LocalDateTime.now());
-        	reqNote.setLastUpdateDate(LocalDateTime.now());
         	reqNote.setStatus(Status.ACTIVE.getValue());
         	reqNote.setUserId(globalController.getLoginUser().getId());
             noteService.save(reqNote);
@@ -65,7 +63,6 @@ public class NoteController {
         try {
             Note note = noteService.findById(editNote.getId());
             if (!note.equals(editNote)) {
-            	editNote.setLastUpdateDate(LocalDateTime.now());
                 noteService.update(editNote);
                 model.addAttribute("msg", "success");
             } else {

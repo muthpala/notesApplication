@@ -6,10 +6,15 @@ import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 /**
  * The Note Entity class
@@ -19,6 +24,7 @@ import javax.persistence.Table;
  */
 @Entity()
 @Table(name = "note", schema = "notesappdb")
+@EntityListeners(AuditingEntityListener.class)
 public class Note {
 
     @Id
@@ -36,9 +42,11 @@ public class Note {
     private String content;
 
     @Column(name = "create_date")
+    @CreatedDate
     private LocalDateTime createDate;
     
     @Column(name = "last_update_date")
+    @LastModifiedDate
     private LocalDateTime lastUpdateDate;
 
     @Column(name = "status")
